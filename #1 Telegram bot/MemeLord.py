@@ -15,6 +15,7 @@ def sendMessage(chat_id, msg):
 		).json()
 
 def sendPhoto(chat_id):
+	image_link = images[random.randint(1,len(images))]['data-src']
 	response = requests.post(
 		url='https://api.telegram.org/bot{}/sendPhoto'.format(TOKEN),
 		data={'chat_id': chat_id, 'photo': image_link}
@@ -33,20 +34,13 @@ def MemeLord(content_type, chat_id, msg):
 
 @app.route('/{}'.format(TOKEN), methods=['GET', 'POST'])
 def main():
+	
 	if request.method == 'POST': 
 		data = request.get_json(force=True)
 		chat_id = data['message']['chat']['id']
 		message = data['message']
-		print('$',chat_id)
 
 		MemeLord('text', chat_id, message)
-
-		dataDict = json.dumps(data)
-		print("#####")
-		print("JSON: ",dataDict)
-		print("#####")
-		with open('out.txt', 'w') as output:
-			output.write(dataDict)
 	
 	return 'MemeLord Online'
 
