@@ -23,8 +23,8 @@ def default_msg(chat_id):
 def MemeLord(content_type, chat_id, msg):
 
 	if content_type == 'text':
-		if message['text'] == '/Hitme':
-			sendMessage(chat_id, message['text'])
+		if msg['text'] == '/Hitme':
+			sendMessage(chat_id, msg['text'])
 		else:
 			default_msg(chat_id)
 
