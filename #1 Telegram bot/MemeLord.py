@@ -3,8 +3,7 @@ from flask import Flask, request, abort
 
 app = Flask(__name__)
 
-with open('TOKEN', 'r') as myfile:
-    TOKEN = myfile.read().replace('\n', '')
+TOKEN = os.environ.get("MEMELORD_TOKEN")
 
 def sendMessage(chat_id, msg):
 	response = requests.post(
