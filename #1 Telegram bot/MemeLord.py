@@ -3,10 +3,9 @@ from flask import Flask, request, abort
 
 app = Flask(__name__)
 
-#with open('TOKEN', 'r') as myfile:
-#    TOKEN=myfile.read().replace('\n', '')
+with open('TOKEN', 'r') as myfile:
+    TOKEN = myfile.read().replace('\n', '')
 
-TOKEN = '690843027:AAGlJTnrqa385D75rvoDqrdT0bvUKAZNXBg'
 
 def sendMessage(chat_id, msg):
 	response = requests.post(
@@ -34,7 +33,7 @@ def MemeLord(content_type, chat_id, msg):
 
 @app.route('/{}'.format(TOKEN), methods=['GET', 'POST'])
 def main():
-	
+
 	if request.method == 'POST': 
 		data = request.get_json(force=True)
 		chat_id = data['message']['chat']['id']
