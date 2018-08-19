@@ -17,4 +17,6 @@ soup = BeautifulSoup(page_source, 'html.parser')
 gallery = soup.find('div', {'id': 'photo_gallery'})
 images = gallery.find_all('img')
 
+print('##',len(images),'##')
+
 image_link = images[random.randint(1,len(images))]['data-src']
