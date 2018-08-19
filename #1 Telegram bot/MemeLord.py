@@ -12,6 +12,12 @@ app = Flask(__name__)
 TOKEN = '690843027:AAGlJTnrqa385D75rvoDqrdT0bvUKAZNXBg'
 url = 'https://i.kym-cdn.com/photos/images/newsfeed/001/217/729/f9a.jpg'
 
+def sendMessage(chat_id, msg):
+	response = requests.post(
+		url='https://api.telegram.org/bot{}/sendMessage'.format(TOKEN),
+		data={'chat_id': chat_id, 'text': msg}
+		).json()
+
 def sendPhoto(chat_id):
 	response = requests.post(
 		url='https://api.telegram.org/bot{}/sendPhoto'.format(TOKEN),
