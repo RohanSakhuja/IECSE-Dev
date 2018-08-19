@@ -24,7 +24,7 @@ def MemeLord(content_type, chat_id, msg):
 
 	if content_type == 'text':
 		if msg['text'] == '/Hitme':
-			sendMessage(chat_id, msg['text'])
+			sendMessage(chat_id, 'It works!')
 		else:
 			default_msg(chat_id)
 

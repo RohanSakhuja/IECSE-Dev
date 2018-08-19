@@ -2,3 +2,4 @@ env/
 Pipfile
 TOKEN
 scrape.py
+script
