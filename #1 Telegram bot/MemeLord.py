@@ -6,7 +6,6 @@ app = Flask(__name__)
 with open('TOKEN', 'r') as myfile:
     TOKEN = myfile.read().replace('\n', '')
 
-
 def sendMessage(chat_id, msg):
 	response = requests.post(
 		url='https://api.telegram.org/bot{}/sendMessage'.format(TOKEN),
@@ -14,7 +13,7 @@ def sendMessage(chat_id, msg):
 		).json()
 
 def sendPhoto(chat_id):
-	image_link = images[random.randint(1,len(images))]['data-src']
+	image_link = images[random.randint(0,len(images)-1)]['data-src']
 	response = requests.post(
 		url='https://api.telegram.org/bot{}/sendPhoto'.format(TOKEN),
 		data={'chat_id': chat_id, 'photo': image_link}
