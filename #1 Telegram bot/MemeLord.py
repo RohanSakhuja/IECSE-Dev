@@ -12,10 +12,10 @@ def sendMessage(chat_id, msg):
 		).json()
 
 def sendPhoto(chat_id):
-	image_link = images[random.randint(0,len(images)-1)]['data-src']
+	image_link = hd_links[random.randint(0,len(images)-1)]['data-src']
 	response = requests.post(
 		url='https://api.telegram.org/bot{}/sendPhoto'.format(TOKEN),
-		data={'chat_id': chat_id, 'photo': hd_links}
+		data={'chat_id': chat_id, 'photo': image_link}
 		).json()
 
 def default_msg(chat_id):
