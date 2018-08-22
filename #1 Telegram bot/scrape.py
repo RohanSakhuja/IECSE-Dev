@@ -16,5 +16,3 @@ soup = BeautifulSoup(page_source, 'html.parser')
 
 gallery = soup.find('div', {'id': 'photo_gallery'})
 images = gallery.find_all('img')
-links = [image['data-src'] for image in images]
-hd_links = ['https://i.kym-cdn.com/photos/images/newsfeed/{}'.format('/'.join(links.split('/')[-4:])) for link in links]
